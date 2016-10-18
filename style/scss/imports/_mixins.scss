@@ -1,0 +1,81 @@
+// Allows us to pass various flexbox attributes.
+// @content allows us to pass others that are less used
+@mixin flex($direction:null, $justify:null, $align:null) {
+  display: flex;
+  @if $direction != null {
+      flex-direction: $direction;
+  }
+  @if $justify != null {
+      justify-content: $justify;
+  }
+  @if $align != null {
+      align-items: $align;
+  }
+  @content;
+}
+
+// Centering helper to center objects in cases when margin auto, text-align, etc won't work.
+// Many use cases involve objects with flex positioning (where display:block/inline-block breaks the flex layout)
+// $position is _optional_, as it may/may not be needed
+
+@mixin position-center($position:null, $direction:both) {
+  @if $position != null {
+    position: $position;
+  }
+
+  @if $direction == X or $direction == x {
+    left: 50%;
+    transform: translateX(-50%);
+  } @else if $direction == Y or $direction == y {
+    top: 50%;
+    transform: translateY(-50%);
+  } @else {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
+
+// antialiasing mode font rendering
+
+@mixin font-smoothing {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+
+// Descender underlines: allows descenders to overlay underline
+@mixin desc-underlines($color, $bg:white, $size:3px, $hover:false) {
+  
+  @if $color == "reset" { // use "reset" to remove underlines as needed
+    text-shadow: initial;
+    box-shadow: initial;
+  } @else {
+
+    // create stroke around letters
+    text-shadow: 1px 0.25px 0 $bg,
+                -1px 0.25px 0 $bg, 
+                 2px 0      0 $bg, 
+                -2px 0      0 $bg;  
+
+    // applies the underline
+    box-shadow: inset 0 (-($size - 1)) 0 0 $bg, 
+                inset 0 (-$size) 0 0 $color;
+
+    @if $hover == true { // handle the hover programmatically
+      &:hover {
+        box-shadow: inset 0 (-$size) 0 0 $bg, 
+                    inset 0 (-($size + 1)) 0 0 $color;
+      }
+    }
+
+    &:focus {
+      outline: none;
+    }
+
+    &:active {
+      box-shadow: inset 0 (-($size)) 1px 0 $bg, 
+                  inset 0 (-$size - 1) 0 0 $color;
+    }
+  }
+}
