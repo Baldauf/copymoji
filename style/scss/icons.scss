@@ -1,0 +1,31 @@
+@include B(icon) {
+  width: 24px;
+  height: 24px;
+  
+  @include M((copy:logo)) {
+    width: 130px;
+    height: 80px;
+  }
+
+  @include M(food) {
+    width: 23.96px;
+  }
+
+  @include M((places:travel)) {
+    width: 18.11px;
+  }
+
+  @include M(objects) {
+    width: 25.66px;
+  }
+
+  @include M(symbols) {
+    height: 20.79px;
+    
+  }
+
+  @include M(flags) {
+    width: 17px;
+    height: 25px;
+  }
+}

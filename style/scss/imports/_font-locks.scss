@@ -1,0 +1,285 @@
+//------------------------------------------------------------------------------
+//------------------------------------------------------------------------------
+//
+// Config:
+// Edit this to change base sizes at various viewport sizes.
+// Widths will ultimately be used in media queries as @media (min-width #{base}px){}
+//
+//------------------------------------------------------------------------------
+//------------------------------------------------------------------------------
+
+$scale: 1.25;  // global type scale
+$base-fs: 16;  // base font size
+
+$sizer: (
+  /* sm: */ (
+    base: 16,
+    lh: 23,
+    ls: 0.15,
+    width: 320
+  ),
+  /* md: */ (
+    base: 18,
+    lh: 29,
+    ls: 0.2,
+    width: 768
+  ),
+  /* lg: */ (
+    base: 20,
+    lh: 31,
+    ls: 0.3,
+    width: 1024
+  )
+);
+
+//------------------------------------------------------------------------------
+// pow($base, $exp) - Raise number to the nth power:
+//
+// @param {number} $base  
+//                  The base number
+// @param {number} $exp
+//                  The exponent to which to raise $base
+//------------------------------------------------------------------------------
+@function pow($base, $exp) {
+  $raised: 1;
+  
+  @if $exp < 0 {          // if negative exponent, translate to 1/($base ^ $exp)
+    $exp: $exp * -1;
+    @for $i from 1 through $exp {
+      $raised: $raised * $base;
+    }
+    $raised: (1 / $raised);
+      
+  } @else if $exp > 0 {
+   @for $i from 1 through $exp {
+      $raised: $raised * $base;
+    }
+  }
+  
+  @return $raised;
+}
+
+
+
+//------------------------------------------------------------------------------
+//------------------------------------------------------------------------------
+//
+// SCALING FUNCTIONS:
+//
+//------------------------------------------------------------------------------
+//------------------------------------------------------------------------------
+
+
+
+//------------------------------------------------------------------------------
+// scale-base($base, $exp) - Apply FONT SIZE formula:
+//
+// @param {number} $base  
+//                  The base number, will default to the global base font size
+// @param {number} $exp
+//                  The exponent to which to raise $base. Defaults to 0
+//------------------------------------------------------------------------------
+@function scale-base ($base:$base-fs, $exp:0) {  
+  $size: round($base * pow($scale, $exp));
+  
+  @return $size;  
+}
+
+//------------------------------------------------------------------------------
+// scale-lh($base, $exp) - Apply type vertical rhythm (LINE HEIGHT) formula:
+//
+// @param {number} $base  
+//                  The base number, will default to the global base font size
+// @param {number} $exp
+//                  The exponent to which to raise $base. Defaults to 0
+//------------------------------------------------------------------------------
+@function scale-lh ($base:$base-fs, $exp:0) {  
+  $size: round($base * pow($scale, $exp));
+  
+  @if $exp > 0 {
+    $size: $size + 1;
+  }
+  @return $size;  
+}
+
+//------------------------------------------------------------------------------
+// scale-ls($base, $exp) - Apply type LETTER SPACING formula:
+//
+// @param {number} $base  
+//                  The base number spacing
+// @param {number} $exp
+//                  The exponent to which to raise $base. Defaults to 0
+//------------------------------------------------------------------------------
+@function scale-ls ($base, $exp:0) {  
+  $size: $base * pow($scale, $exp);
+  
+  @return $size;  
+}
+
+
+
+//------------------------------------------------------------------------------
+//------------------------------------------------------------------------------
+//
+// LOCK MIXINS:
+//
+//------------------------------------------------------------------------------
+//------------------------------------------------------------------------------
+
+
+
+//------------------------------------------------------------------------------
+// fs-lock($exp) - FONT SIZE mixin:
+//
+// @param {number} $exp (optional):
+//                  Positive integer values increase text size from base
+//                  Negative values shrink text from base
+//                  0 (or default) export as base font size
+//------------------------------------------------------------------------------
+@mixin fs-lock($exp:0) {
+  $l: length($sizer) + 1;
+  
+  @for $i from 1 to $l {
+    $key: nth($sizer, $i);
+    $b1: map-get($key, base);
+    $mq1: map-get($key, width);
+    
+    @if $i == 1 {              // if smallest breakpoint
+      $fs: scale-base($b1, $exp);
+      font-size: #{$fs}px;
+      
+    } 
+    
+    @if $i == $l - 1 {        // if largest breakpoint
+      $fs: scale-base($b1, $exp);
+
+      @media (min-width: #{$mq1}px) {
+        font-size: #{$fs}px;
+      }
+
+    } @else {
+      $key2: nth($sizer, ($i + 1));
+      $b2: map-get($key2, base);
+      $mq2: map-get($key2, width);
+
+      $fs1: scale-base($b1, $exp);
+      $fs2: scale-base($b2, $exp);
+
+      $slope: (($fs2 - $fs1)/($mq2 - $mq1));
+      $slope-perc: $slope * 100;
+      $offset: $fs1 - ($slope * $mq1);
+      
+      @media (min-width: #{$mq1}px) {
+        font-size: calc(#{$slope-perc}vw + #{$offset}px);    
+      }
+    }
+
+  }
+}
+
+
+//------------------------------------------------------------------------------
+// lh-lock($exp) - LINE HEIGHT mixin:
+//
+// @param {number} $exp (optional):
+//                  Positive integer values increase text size from base
+//                  Negative values shrink text from base
+//                  0 (or default) export as base font size
+//------------------------------------------------------------------------------
+@mixin lh-lock($exp:0) {
+  $l: length($sizer) + 1;
+  
+  @for $i from 1 to $l {
+    $key: nth($sizer, $i);
+    $b1: map-get($key, base);
+    $l1: map-get($key, lh);
+    $mq1: map-get($key, width);
+    
+    
+    @if $i == 1 {                    // if smallest breakpoint
+      $lh: scale-lh($l1, $exp);
+      line-height: #{$lh}px;
+    }
+      
+    @if $i == $l - 1 {        // if largest breakpoint
+      $lh: scale-lh($l1, $exp);
+
+      @media (min-width: #{$mq1}px) {
+        line-height: #{$lh}px;
+      }
+
+    } @else {
+      $key2: nth($sizer, ($i + 1));
+      $b2: map-get($key2, base);
+      $mq2: map-get($key2, width);
+      $l2: map-get($key2, lh);
+
+      $lh1: scale-lh($l1, $exp);
+      $lh2: scale-lh($l2, $exp);
+
+      $slope: (($lh2 - $lh1)/($mq2 - $mq1));
+      $slope-perc: $slope * 100;
+      $offset: $lh1 - ($slope * $mq1);
+      
+      @media (min-width: #{$mq1}px) {
+        line-height: calc(#{$slope-perc}vw + #{$offset}px);    
+      }
+    }
+
+  }
+}
+
+
+//------------------------------------------------------------------------------
+// ls-lock($exp) - LETTER SPACING mixin:
+//
+// @param {number} $exp (optional):
+//                  Positive integer values increase text size from base
+//                  Negative values shrink text from base
+//                  0 (or default) export as base font size
+//------------------------------------------------------------------------------
+@mixin ls-lock($exp:0) {
+  $l: length($sizer) + 1;
+  
+  @for $i from 1 to $l {
+    $key: nth($sizer, $i);
+    $b1: map-get($key, base);
+    $l1: map-get($key, ls);
+    $mq1: map-get($key, width);
+    //@warn "ls1: #{$ls1}";
+    
+    @if $i == 1 {                    // if smallest breakpoint
+      $ls: scale-ls($l1, $exp);
+      letter-spacing: #{$ls}px;
+      //@warn "ls: #{$ls}";
+      
+    } 
+    
+    @if $i == $l - 1 {        // if largest breakpoint
+      $ls: scale-ls($l1, $exp);
+      // @warn "ls: #{$ls}";
+
+      @media (min-width: #{$mq1}px) {
+        letter-spacing: #{$ls}px;
+      }
+
+    } @else {
+      $key2: nth($sizer, ($i + 1));
+      $b2: map-get($key2, base);
+      $l2: map-get($key2, ls);
+      $mq2: map-get($key2, width);
+
+      $ls1: scale-ls($l1, $exp);
+      $ls2: scale-ls($l2, $exp);
+
+      $slope: (($ls2 - $ls1)/($mq2 - $mq1));
+      $slope-perc: $slope * 100;
+      $offset: $ls1 - ($slope * $mq1);
+      
+      @media (min-width: #{$mq1}px) {
+        letter-spacing: calc(#{$slope-perc}vw + #{$offset}px);    
+      }
+    }
+
+  }
+}
