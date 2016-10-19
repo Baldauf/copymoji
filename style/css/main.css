@@ -527,6 +527,35 @@ html, body {
   z-index: 1;
 }
 
+.page-search {
+  position: relative;
+  margin: 0 auto;
+}
+
+.search {
+  display: block;
+  width: 200px;
+  height: 50px;
+  margin: 0 auto 50px;
+  padding: 0 15px;
+  background: rgba(52, 65, 96, 0.05);
+  border: none;
+  border-radius: 4px;
+  box-shadow: none;
+  box-sizing: border-box;
+}
+
+.search:focus {
+  outline: none;
+  background: rgba(52, 65, 96, 0.08);
+}
+
+::-webkit-input-placeholder {
+  color: #344160;
+  font-size: 0.75rem;
+  text-align: center;
+}
+
 body {
   font-size: 16px;
   font-family: "Helvetica Neue", Helvetica, sans-serif;
