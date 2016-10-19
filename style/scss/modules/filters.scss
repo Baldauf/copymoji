@@ -1,11 +1,35 @@
 //------------------------------------------------------------------------------
 // Abstract
 
+%filter-focus {
+  background: rgba($black, 0.1);
+  border-radius: 4px;
+}
 
 
 //------------------------------------------------------------------------------
 // Filters
 @include B(filters) {
   @include flex(row, center, center);
-  background:rgba($black,0.1);
+  height: 80px;
+  background: rgba($black,0.1);
+}
+
+@include B(filter) {
+  @include flex(row, center, center);
+  width: 50px;
+  height: 50px;
+
+  &:hover {
+    @extend %filter-focus;
+    cursor: pointer;
+  }
+
+  &:not(:last-child) {
+    margin-right: 34px;
+  }
+
+  @include M(active) {
+    @extend %filter-focus;
+  }
 }
