@@ -6,5 +6,6 @@
 //------------------------------------------------------------------------------
 // Header
 @include B(page-header) {
-  text-align: center;
+  @include flex(row, center, center);
+  height: 170px;
 }

@@ -401,7 +401,16 @@ html, body {
 }
 
 .page-header {
-  text-align: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  height: 170px;
+}
+
+.filter:hover, .filter--active {
+  background: rgba(52, 65, 96, 0.1);
+  border-radius: 4px;
 }
 
 .filters {
@@ -409,11 +418,113 @@ html, body {
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  height: 80px;
   background: rgba(52, 65, 96, 0.1);
+}
+
+.filter {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 50px;
+  height: 50px;
+}
+
+.filter:hover {
+  cursor: pointer;
+}
+
+.filter:not(:last-child) {
+  margin-right: 34px;
+}
+
+.emoji {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  max-width: 490px;
+  margin: 0 auto;
+}
+
+.emoji__mojo {
+  position: relative;
+  padding: 10px 17px 24px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.emoji__mojo:nth-child(6n) {
+  margin-right: 10px;
+}
+
+.emoji__mojo:after {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 15px;
+  font-size: 0.5625rem;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 .emoji__mojo:hover {
   cursor: pointer;
+  background: rgba(52, 65, 96, 0.1);
+  border-radius: 4px;
+}
+
+.emoji__mojo:hover:after {
+  content: 'copy';
+}
+
+.emoji__mojo:hover .emoji__mojo-tones {
+  display: block;
+}
+
+.emoji__mojo:active {
+  background: rgba(52, 65, 96, 0.15);
+}
+
+.emoji__mojo:active:after {
+  content: 'copied!';
+}
+
+.emoji__mojo-tones {
+  display: none;
+  position: absolute;
+  z-index: 1;
+  width: 70px;
+  top: 80px;
+  left: 0;
+  background: #fcfcfd;
+  border: 1px solid #344160;
+  border-radius: 3px;
+  text-align: center;
+}
+
+.emoji__mojo-tones:after {
+  content: '';
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  top: -6px;
+  left: 30px;
+  border-top: 1px solid black;
+  border-left: 1px solid black;
+  background: #fcfcfd;
+  transform: rotate(45deg);
+}
+
+.emoji__mojo-tones-1 {
+  position: relative;
+  z-index: 1;
 }
 
 body {
