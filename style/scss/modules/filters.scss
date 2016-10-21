@@ -10,19 +10,34 @@
 //------------------------------------------------------------------------------
 // Filters
 @include B(filters) {
+  $_filters-height: 80px;
   @include flex(row, center, center);
-  height: 80px;
-  background: rgba($black,0.1);
+  width: 100%;
+  height: $_filters-height;
+  z-index: 1;
+  background: lighten($black, 67.5%);
+
+  // BEM : Mods
+  @include M(lock) {
+    position: fixed;
+    top: 0;
+  }
 }
 
 @include B(filter) {
   @include flex(row, center, center);
+  @include desc-underlines(reset);
   width: 50px;
   height: 50px;
+  text-decoration: none;
 
   &:hover {
     @extend %filter-focus;
     cursor: pointer;
+  }
+
+  &:active {
+    @include desc-underlines(reset);
   }
 
   &:not(:last-child) {

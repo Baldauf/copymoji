@@ -9,5 +9,17 @@ $(document).ready(function(){
   });
 
   // make clipboard clip
-  new Clipboard('.emoji__mojo');
-})
+  new Clipboard('.emoji__mojo--copy');
+  new Clipboard('.emoji__mojo-tone');
+});
+
+$(window).scroll(function() {    
+  var scroll = $(window).scrollTop(),
+      filters = $(".filters");
+  
+  if (scroll >= 270) {
+      filters.addClass("filters--lock");
+  } else {
+    filters.removeClass("filters--lock");
+  }
+});

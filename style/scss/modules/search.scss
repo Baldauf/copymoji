@@ -20,6 +20,7 @@
   border-radius: 4px;
   box-shadow: none;
   box-sizing: border-box;
+  font-family: $font-mono;
 
   &:focus {
     outline: none;
@@ -29,6 +30,7 @@
 
 ::-webkit-input-placeholder {
   color: $black;
+  font-family: $font-mono;
   font-size: in-rems(12px);
   text-align: center;
 }
