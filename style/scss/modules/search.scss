@@ -21,10 +21,18 @@
   box-shadow: none;
   box-sizing: border-box;
   font-family: $font-mono;
+  text-align: center;
 
   &:focus {
     outline: none;
     background: rgba($black, 0.08);
+  }
+
+  @include M(lock) {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 2;
   }
 }
 
