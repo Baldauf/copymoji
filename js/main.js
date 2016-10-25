@@ -1,7 +1,12 @@
 $(document).ready(function(){
 
   $('#search').keyup(function() {
-    var keyword = $(this).val().toLowerCase();
+    var keyword = $(this).val().toLowerCase(),
+        cat = $('.category');
+
+    if( !$(this).val() ) {
+      cat.removeClass('category--hide');
+    }
 
     $('.emoji__mojo').each( function() {
       $(this).toggle( keyword.length < 1 || $(this).attr('data-models').indexOf(keyword) > -1 );
