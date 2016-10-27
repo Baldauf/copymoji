@@ -600,10 +600,6 @@ html, body {
   text-align: center;
 }
 
-.category {
-  padding-top: 130px;
-}
-
 .category__label {
   display: flex;
   align-items: center;
@@ -621,10 +617,6 @@ html, body {
   display: block;
   width: 490px;
   margin: 0 auto;
-}
-
-.category--people {
-  margin-top: -130px;
 }
 
 .category--hide {

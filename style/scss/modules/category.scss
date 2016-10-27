@@ -6,8 +6,6 @@
 // Category
 
 @include B(category) {
-  padding-top: 130px;
-
   @include E(label) {
     @include flex($align:center);
     width: 100%;
@@ -24,10 +22,6 @@
       width: $width--emojis;
       margin: 0 auto;
     }
-  }
-
-  @include M(people) {
-    margin-top: -130px;
   }
 
   @include M(hide) {
