@@ -22,8 +22,25 @@ $(document).ready(function(){
   });
 
   // make clipboard clip
-  new Clipboard('.emoji__mojo--copy');
   new Clipboard('.emoji__mojo-tone');
+
+  var clipboard = new Clipboard('.emoji__mojo--copy');
+
+  clipboard.on('success', function(e) {
+    function doThis(){
+      console.log('yo');
+      e.trigger.classList.remove('copied');
+    }
+
+    e.trigger.classList.add('copied');
+    setTimeout(doThis, 2000);
+    e.clearSelection();
+  });
+
+  clipboard.on('error', function(e) {
+    e.trigger.classList.remove('copy-btn--copied');
+    e.trigger.classList.add('copy-btn--fail');
+  });
 });
 
 $(window).scroll(function() {    
