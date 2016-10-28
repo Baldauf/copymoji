@@ -6,6 +6,11 @@
 // Category
 
 @include B(category) {
+  background: red;
+
+  @include media(">=tablet") {
+    background: none;
+  }
   @include E(label) {
     @include flex($align:center);
     width: 100%;
