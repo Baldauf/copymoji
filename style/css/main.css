@@ -600,6 +600,16 @@ html, body {
   text-align: center;
 }
 
+.category {
+  background: red;
+}
+
+@media (min-width: 768px) {
+  .category {
+    background: none;
+  }
+}
+
 .category__label {
   display: flex;
   align-items: center;
