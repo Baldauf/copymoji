@@ -19,8 +19,8 @@ html, body {
   height: 100px;
 }
 
-@include B(page) {
-  @include E(filters) {
+.page {
+  .page__filters {
     height: 80px;
   }
 }

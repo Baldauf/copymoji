@@ -5,7 +5,7 @@
 
 //------------------------------------------------------------------------------
 // Header
-@include B(page-header) {
+.page-header {
   @include flex(row, center, center);
   height: 170px;
 }

@@ -5,12 +5,12 @@
 
 //------------------------------------------------------------------------------
 // Emoji
-@include B(emoji) {
+.emoji {
   @include flex(row, space-between, center);
   flex-wrap: wrap;
   max-width: $width--emojis;
   margin: 0 auto;
-  @include E(mojo) {
+  .emoji__mojo {
     position: relative;
     padding: 10px 17px 24px;
     -webkit-user-select: none;
@@ -40,19 +40,21 @@
         content: 'copy';
       }
 
-      @include BEM(emoji, mojo-tones) {
+      .emoji__mojo-tones {
         display: block;
       }
     }
+
     &:active {
       background: lighten($black, 65%);
+      
       &:after {
         content: 'copied!';
       }
     }  
   }
 
-  @include E(mojo-tones) {
+  .emoji__mojo-tones {
     display: none;
     position: absolute;
     z-index: 1;
@@ -78,7 +80,7 @@
       transform: rotate(45deg);
     }
 
-    @include BEM(emoji, mojo-tone) {
+    .emoji__mojo-tone {
       display: block;
       width: 100%;
       &:hover {

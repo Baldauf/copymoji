@@ -5,13 +5,8 @@
 //------------------------------------------------------------------------------
 // Category
 
-@include B(category) {
-  background: red;
-
-  @include media(">=tablet") {
-    background: none;
-  }
-  @include E(label) {
+.category {
+  .category__label {
     @include flex($align:center);
     width: 100%;
     height: 40px;
@@ -29,7 +24,7 @@
     }
   }
 
-  @include M(hide) {
+  &.category--hide {
     display: none;
   }
 }

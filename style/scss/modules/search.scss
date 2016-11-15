@@ -4,12 +4,12 @@
 
 //------------------------------------------------------------------------------
 // Search
-@include B(page-search) {
+.page-search {
   position: relative;
   margin: 0 auto;
 }
 
-@include B(search) {
+.search {
   display: block;
   width: 200px;
   height: 50px;
@@ -28,7 +28,7 @@
     background: rgba($black, 0.08);
   }
 
-  @include M(lock) {
+  &.search--lock {
     position: fixed;
     top: 0;
     width: 100%;

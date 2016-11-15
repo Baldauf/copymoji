@@ -9,7 +9,7 @@
 
 //------------------------------------------------------------------------------
 // Filters
-@include B(filters) {
+.filters {
   $_filters-height: 80px;
   @include flex(row, center, center);
   width: 100%;
@@ -18,14 +18,14 @@
   background: lighten($black, 67.5%);
 
   // BEM : Mods
-  @include M(lock) {
+  &.filters--lock {
     position: fixed;
     top: 0;
     padding-top: 50px;
   }
 }
 
-@include B(filter) {
+.filter {
   @include flex(row, center, center);
   @include desc-underlines(reset);
   width: 50px;
@@ -42,10 +42,13 @@
   }
 
   &:not(:last-child) {
-    margin-right: 34px;
+
+    @include media(">=tablet") {
+      margin-right: 34px;
+    }
   }
 
-  @include M(active) {
+  &.filter--active {
     @extend %filter-focus;
   }
 }
