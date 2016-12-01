@@ -23,6 +23,105 @@ html, body {
   .page__filters {
     height: 80px;
   }
+
+  .page__footer {
+    @include flex(row, center, center);
+    position: relative;
+    height: 80px;
+    background: lighten($black, 67.5%);
+
+    a {
+      @include desc-underlines($black, lighten($black, 67.5%), 2px);
+    }
+
+    .page-footer-right {
+      position: absolute;
+      right: 10px;
+    }
+
+    .page-footer-feedback-form {
+      @include flex(row, center, center);
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      bottom: 0;
+      z-index: -1;
+      background: rgba(lighten($black, 67.5%), 0.95);
+      opacity: 0;
+      transition: opacity 0.2s ease-out;
+    }
+
+    .page-footer-feedback-form--show {
+      z-index: 3;
+      opacity: 1;
+      transition: opacity 0.2s ease-in;
+    }
+
+    #feedback-close {
+      @include desc-underlines(reset);
+      position: absolute;
+      width: 50px;
+      height: 50px;
+      top: 20px;
+      right: 20px;
+      border-radius: 50%;
+      background: lighten($black, 50%);
+
+      &:hover {
+        background: lighten($black, 35.5%);
+      }
+
+      &:before,
+      &:after {
+        content: '';
+        @include position-center(absolute, y);
+        width: 20px;
+        height: 1px;
+        left: 15px;
+        background: white;
+      }
+
+      &:before {
+        transform: rotate(45deg);
+      }
+      &:after {
+        transform: rotate(-45deg);
+      }
+    }
+
+    #feedback-form {
+      input, textarea {
+        width: 60vw;
+        margin-bottom: 20px;
+        border: 1px solid lighten($black, 60%);
+        text-align: center;
+      }
+
+      input {
+        height: 40px;
+      }
+
+      textarea {
+        padding-top: 20px;
+      }
+
+      button {
+        padding: 20px 40px;
+        color: white;
+        background: lighten($black, 50%);
+        border: none;
+        font-family: $font-mono;
+
+        &:hover {
+          background: lighten($black, 35.5%);
+        }
+      }
+
+      .input-wrap--submit {
+        text-align: center
+      }
+    }
+  }
 }
 
 //------------------------------------------------------------------------------

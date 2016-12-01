@@ -36,6 +36,20 @@ $(document).ready(function(){
     e.clearSelection();
   });
 
+  // Feedback modal: show
+  $('#feedback-modal').click(function(e) {
+    var modal = $('.page-footer-feedback-form');
+    e.preventDefault();
+    modal.addClass('page-footer-feedback-form--show');
+  });
+
+  // Feedback modal: hide
+  $('#feedback-close').click(function(e) {
+    var modal = $('.page-footer-feedback-form');
+    e.preventDefault();
+    modal.removeClass('page-footer-feedback-form--show');
+  });
+
   // smooth scroll to el
   $(function() {
     $('a[href*="#"]:not([href="#"])').click(function() {
