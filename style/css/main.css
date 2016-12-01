@@ -408,6 +408,121 @@ html, body {
   height: 80px;
 }
 
+.page .page__footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  height: 80px;
+  background: #f3f5f9;
+}
+
+.page .page__footer a {
+  text-shadow: 1px 0.25px 0 #f3f5f9, -1px 0.25px 0 #f3f5f9, 2px 0 0 #f3f5f9, -2px 0 0 #f3f5f9;
+  box-shadow: inset 0 -1px 0 0 #f3f5f9, inset 0 -2px 0 0 #344160;
+}
+
+.page .page__footer a:focus {
+  outline: none;
+}
+
+.page .page__footer a:active {
+  box-shadow: inset 0 -2px 1px 0 #f3f5f9, inset 0 -3px 0 0 #344160;
+}
+
+.page .page__footer .page-footer-right {
+  position: absolute;
+  right: 10px;
+}
+
+.page .page__footer .page-footer-feedback-form {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  bottom: 0;
+  z-index: -1;
+  background: rgba(243, 245, 249, 0.95);
+  opacity: 0;
+  transition: opacity 0.2s ease-out;
+}
+
+.page .page__footer .page-footer-feedback-form--show {
+  z-index: 3;
+  opacity: 1;
+  transition: opacity 0.2s ease-in;
+}
+
+.page .page__footer #feedback-close {
+  text-shadow: initial;
+  box-shadow: initial;
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  top: 20px;
+  right: 20px;
+  border-radius: 50%;
+  background: #bac3d9;
+}
+
+.page .page__footer #feedback-close:hover {
+  background: #8a9abf;
+}
+
+.page .page__footer #feedback-close:before, .page .page__footer #feedback-close:after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 20px;
+  height: 1px;
+  left: 15px;
+  background: white;
+}
+
+.page .page__footer #feedback-close:before {
+  transform: rotate(45deg);
+}
+
+.page .page__footer #feedback-close:after {
+  transform: rotate(-45deg);
+}
+
+.page .page__footer #feedback-form input, .page .page__footer #feedback-form textarea {
+  width: 60vw;
+  margin-bottom: 20px;
+  border: 1px solid #dbe0eb;
+  text-align: center;
+}
+
+.page .page__footer #feedback-form input {
+  height: 40px;
+}
+
+.page .page__footer #feedback-form textarea {
+  padding-top: 20px;
+}
+
+.page .page__footer #feedback-form button {
+  padding: 20px 40px;
+  color: white;
+  background: #bac3d9;
+  border: none;
+  font-family: "Roboto Mono", "Monaco", "Courier New", monospace;
+}
+
+.page .page__footer #feedback-form button:hover {
+  background: #8a9abf;
+}
+
+.page .page__footer #feedback-form .input-wrap--submit {
+  text-align: center;
+}
+
 .page-header {
   display: flex;
   flex-direction: row;
