@@ -1,0 +1,94 @@
+//------------------------------------------------------------------------------
+// Abstract
+
+
+//------------------------------------------------------------------------------
+// Category
+
+.expand {
+  @include flex(row, space-between, center);
+  @include desc-underlines(reset);
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  width: 35px;
+  height: 15px;
+  z-index: 3;
+  transform: scale(0.875);
+
+  &:hover {
+    span, span:before, span:after {
+      background: $black;
+    }
+  }
+
+  &:hover,
+  &:active {
+    @include desc-underlines(reset);
+  }
+
+  span {
+    width: 15px;
+    height: 2px;
+    background: lighten($black, 25%);
+
+    &:before,
+    &:after {
+      content: '';
+      position: absolute;
+      width: 10px;
+      height: 2px;
+      background: lighten($black, 25%);
+    }
+
+    &:first-child {
+      &:before {
+        top: 3px;
+        left: 0;
+        transform: rotate(-45deg);
+      }
+      &:after {
+        bottom: 2px;
+        left: 0;
+        transform: rotate(45deg);
+      }
+    }
+
+    &:last-child {
+      &:before {
+        top: 3px;
+        right: 0;
+        transform: rotate(45deg);
+      }
+      &:after {
+        bottom: 2px;
+        right: 0;
+        transform: rotate(-45deg);
+      }
+    }
+  }
+
+  &.expand--expanded {
+    span:first-child {
+      &:before {
+        left: 6px;
+        transform: rotate(45deg);
+      }
+      &:after {
+        left: 6px;
+        transform: rotate(-45deg);
+      }
+    }
+
+    span:last-child {
+      &:before {
+        right: 6px;
+        transform: rotate(-45deg);
+      }
+      &:after {
+        right: 6px;
+        transform: rotate(45deg);
+      }
+    }
+  }
+}

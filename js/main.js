@@ -40,6 +40,14 @@ $(document).ready(function(){
     e.clearSelection();
   });
 
+
+  // Widescreen
+  $('.expand').click(function(e) {
+    e.preventDefault();
+    $(this).toggleClass('expand--expanded');
+    $('.emoji').toggleClass('emoji--widescreen');
+  });
+
   // Feedback modal: show
   $('#feedback-modal').click(function(e) {
     var modal = $('.page-footer-feedback-form');

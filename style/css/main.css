@@ -681,6 +681,10 @@ html, body {
   z-index: 1;
 }
 
+.emoji.emoji--widescreen {
+  max-width: calc(100% - 100px);
+}
+
 .page-search {
   position: relative;
   margin: 0 auto;
@@ -775,6 +779,89 @@ html, body {
   text-align: center;
   font-family: "Roboto Mono", "Monaco", "Courier New", monospace;
   font-size: 10px;
+}
+
+.expand {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  text-shadow: initial;
+  box-shadow: initial;
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  width: 35px;
+  height: 15px;
+  z-index: 3;
+  transform: scale(0.875);
+}
+
+.expand:hover span, .expand:hover span:before, .expand:hover span:after {
+  background: #344160;
+}
+
+.expand:hover, .expand:active {
+  text-shadow: initial;
+  box-shadow: initial;
+}
+
+.expand span {
+  width: 15px;
+  height: 2px;
+  background: #677bad;
+}
+
+.expand span:before, .expand span:after {
+  content: '';
+  position: absolute;
+  width: 10px;
+  height: 2px;
+  background: #677bad;
+}
+
+.expand span:first-child:before {
+  top: 3px;
+  left: 0;
+  transform: rotate(-45deg);
+}
+
+.expand span:first-child:after {
+  bottom: 2px;
+  left: 0;
+  transform: rotate(45deg);
+}
+
+.expand span:last-child:before {
+  top: 3px;
+  right: 0;
+  transform: rotate(45deg);
+}
+
+.expand span:last-child:after {
+  bottom: 2px;
+  right: 0;
+  transform: rotate(-45deg);
+}
+
+.expand.expand--expanded span:first-child:before {
+  left: 6px;
+  transform: rotate(45deg);
+}
+
+.expand.expand--expanded span:first-child:after {
+  left: 6px;
+  transform: rotate(-45deg);
+}
+
+.expand.expand--expanded span:last-child:before {
+  right: 6px;
+  transform: rotate(-45deg);
+}
+
+.expand.expand--expanded span:last-child:after {
+  right: 6px;
+  transform: rotate(45deg);
 }
 
 body {
