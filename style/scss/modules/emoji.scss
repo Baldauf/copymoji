@@ -89,4 +89,8 @@
       }
     }
   }
+
+  &.emoji--widescreen {
+    max-width: calc(100% - 100px);
+  }
 }
