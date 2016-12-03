@@ -1,0 +1,39 @@
+//------------------------------------------------------------------------------
+// Abstract
+
+
+//------------------------------------------------------------------------------
+// Category
+
+$_copy-size: 100px;
+
+.copy-block {
+  position: fixed;
+  bottom: -$_copy-size;
+  left: 10px;
+  width: $_copy-size;
+  height: $_copy-size;
+  background: rgba($black, 0.1);
+  border-radius: 4px;
+  transition: bottom 0.2s ease-out;
+
+  &.copy-block--copied {
+    bottom: 10px;
+    transition: bottom 0.3s ease-in;
+  }
+
+  span {
+    @include position-center(absolute, x);
+    top: 20px;
+    font-size: 36px;
+  }
+  &:after {
+    content:'copied 🙂';
+    position: absolute;
+    bottom: 10px;
+    width: 100%;
+    text-align: center;
+    font-family: $font-mono;
+    font-size: 10px;
+  }
+}

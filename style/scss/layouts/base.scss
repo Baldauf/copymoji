@@ -126,3 +126,10 @@ html, body {
 
 //------------------------------------------------------------------------------
 // Footer Components
+
+
+div#at4-share {
+  @include media(">=tablet") {
+    top: 40%!important;    
+  }
+}

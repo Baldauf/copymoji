@@ -47,10 +47,6 @@
 
     &:active {
       background: lighten($black, 65%);
-      
-      &:after {
-        content: 'copied!';
-      }
     }  
   }
 
