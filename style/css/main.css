@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /*! normalize.css v3.0.2 | MIT License | git.io/normalize */
 /**
  * 1. Set default font family to sans-serif.
@@ -523,6 +524,12 @@ html, body {
   text-align: center;
 }
 
+@media (min-width: 768px) {
+  div#at4-share {
+    top: 40% !important;
+  }
+}
+
 .page-header {
   display: flex;
   flex-direction: row;
@@ -633,10 +640,6 @@ html, body {
   background: #ebeef4;
 }
 
-.emoji .emoji__mojo:active:after {
-  content: 'copied!';
-}
-
 .emoji .emoji__mojo-tones {
   display: none;
   position: absolute;
@@ -738,6 +741,40 @@ html, body {
 
 .category.category--hide {
   display: none;
+}
+
+.copy-block {
+  position: fixed;
+  bottom: -100px;
+  left: 10px;
+  width: 100px;
+  height: 100px;
+  background: rgba(52, 65, 96, 0.1);
+  border-radius: 4px;
+  transition: bottom 0.2s ease-out;
+}
+
+.copy-block.copy-block--copied {
+  bottom: 10px;
+  transition: bottom 0.3s ease-in;
+}
+
+.copy-block span {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 20px;
+  font-size: 36px;
+}
+
+.copy-block:after {
+  content: 'copied 🙂';
+  position: absolute;
+  bottom: 10px;
+  width: 100%;
+  text-align: center;
+  font-family: "Roboto Mono", "Monaco", "Courier New", monospace;
+  font-size: 10px;
 }
 
 body {

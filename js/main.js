@@ -27,11 +27,15 @@ $(document).ready(function(){
   var clipboard = new Clipboard('.emoji__mojo--copy');
 
   clipboard.on('success', function(e) {
+    var copyBlock = $('.copy-block'),
+        copyContent = $(e.trigger).data('clipboard-text');
+
     function hideCopy(){
-      e.trigger.classList.remove('copied');
+      $('.copy-block').removeClass('copy-block--copied');
     }
 
-    e.trigger.classList.add('copied');
+    copyBlock.find('span').html(copyContent);
+    copyBlock.addClass('copy-block--copied');
     setTimeout(hideCopy, 2000);
     e.clearSelection();
   });
@@ -95,7 +99,7 @@ $(window).scroll(function() {
         bottom = height + dist,
         active = 'filter--active';
 
-        console.log(text)
+        // console.log(text)
 
     if(scroll > dist && scroll < bottom) {
       self.addClass(active);
