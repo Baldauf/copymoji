@@ -1,7 +1,7 @@
 var gulp = require('gulp')
   , sass = require('gulp-sass')
   , rename = require('gulp-rename')
-  , livereload = require('gulp-livereload')
+  , browserSync = require('browser-sync').create()
   , gulpHelp = require('gulp-help')
   , svgSprite = require('gulp-svg-sprite');
 
@@ -18,8 +18,7 @@ gulp.task('build-scss', 'builds the css un-minified', function() {
   return gulp.src(paths.scssMain)
     .pipe(sass({ outputStyle: 'expanded' }))
     .pipe(gulp.dest(paths.css))
-    .pipe(livereload())
-    .resume();
+    .pipe(browserSync.stream());
 });
 
 gulp.task('svgsprite', function () {
@@ -39,7 +38,16 @@ gulp.task('svgsprite', function () {
 })
 
 gulp.task('watch', 'watch all scss and compile changes with livereload', function() {
-  livereload.listen();
   gulp.watch(paths.scss, ['build-scss'])
   gulp.watch(paths.svg + '**/*.svg', ['svgsprite'])
 });
+
+gulp.task('serve', ['watch'], function() {
+  browserSync.init({
+    server: {
+      baseDir: "./"
+    }
+  });
+
+  gulp.watch("**/*.html").on('change', browserSync.reload);
+})
