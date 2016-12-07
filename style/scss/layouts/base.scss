@@ -124,6 +124,19 @@ html, body {
   }
 }
 
+.page.page--index {
+  height: 100%;
+
+  .page__header {
+    position: relative;
+    z-index: 1;
+  }
+
+  .page__body {
+    height: calc(100% - 170px);
+  }
+}
+
 //------------------------------------------------------------------------------
 // Footer Components
 

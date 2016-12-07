@@ -1,0 +1,34 @@
+//------------------------------------------------------------------------------
+// Abstract
+
+
+//------------------------------------------------------------------------------
+// Megalink
+
+.megalinks {
+  @include flex(row, center, stretch);
+  position: absolute;
+  height: 100vh;
+  width: 100vw;
+  top: 0;
+}
+
+.megalink {
+  @include flex(column, center, center);
+  @include desc-underlines(reset);
+  flex-basis: 50%;
+  flex-grow: 1;
+
+  &:hover {
+    background: lighten($black, 67.5%);
+  }
+
+  .megalink__char {
+    font-size: 60px;
+  }
+
+  .megalink__text {
+    font-family: $font-mono;
+    font-size: 36px;
+  }
+}

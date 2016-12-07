@@ -524,6 +524,19 @@ html, body {
   text-align: center;
 }
 
+.page.page--index {
+  height: 100%;
+}
+
+.page.page--index .page__header {
+  position: relative;
+  z-index: 1;
+}
+
+.page.page--index .page__body {
+  height: calc(100% - 170px);
+}
+
 @media (min-width: 768px) {
   div#at4-share {
     top: 40% !important;
@@ -862,6 +875,41 @@ html, body {
 .expand.expand--expanded span:last-child:after {
   right: 6px;
   transform: rotate(45deg);
+}
+
+.megalinks {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: stretch;
+  position: absolute;
+  height: 100vh;
+  width: 100vw;
+  top: 0;
+}
+
+.megalink {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-shadow: initial;
+  box-shadow: initial;
+  flex-basis: 50%;
+  flex-grow: 1;
+}
+
+.megalink:hover {
+  background: #f3f5f9;
+}
+
+.megalink .megalink__char {
+  font-size: 60px;
+}
+
+.megalink .megalink__text {
+  font-family: "Roboto Mono", "Monaco", "Courier New", monospace;
+  font-size: 36px;
 }
 
 body {
