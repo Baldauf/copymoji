@@ -103,11 +103,11 @@ $(document).ready(function(){
   })();
 
   vis(function(){
-    document.title = vis() ? 'Copymoji 😜' : 'Copymoji misses you 🙁';
+    document.title = vis() ? 'Copychar 😜' : 'Copychar misses you 🙁';
   });
 
   // to set the initial state
-  document.title = vis() ? 'Copymoji 😜' : 'Copymoji misses you 🙁';
+  document.title = vis() ? 'Copychar 😜' : 'Copychar misses you 🙁';
 });
 
 $(window).scroll(function() {    
