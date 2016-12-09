@@ -5,15 +5,39 @@
 //------------------------------------------------------------------------------
 // Category
 
-.expand {
-  @include flex(row, space-between, center);
-  @include desc-underlines(reset);
-  position: fixed;
-  top: 20px;
-  right: 20px;
-  width: 35px;
-  height: 15px;
+.page__links {
+  position: relative;
   z-index: 3;
+}
+
+.page-links {
+  @include flex(row, flex-end, center);
+  position: fixed;
+  top: 15px;
+  right: 20px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.page-link {
+  @include desc-underlines(reset);
+  margin-right: 10px;
+
+  &:hover,
+  &:active {
+    @include desc-underlines(reset);
+  }
+}
+
+.page-link--emoji {
+  font-size: 12px;
+}
+
+.page-link--expand {
+  @include flex(row, space-between, center);
+  width: 25px;
+  height: 15px;
   transform: scale(0.875);
 
   &:hover {
@@ -28,27 +52,27 @@
   }
 
   span {
-    width: 15px;
-    height: 2px;
-    background: lighten($black, 25%);
+    width: 10px;
+    height: 1px;
+    background: $black;
 
     &:before,
     &:after {
       content: '';
       position: absolute;
-      width: 10px;
-      height: 2px;
-      background: lighten($black, 25%);
+      width: 5px;
+      height: 1px;
+      background: $black;
     }
 
     &:first-child {
       &:before {
-        top: 3px;
+        top: 5px;
         left: 0;
         transform: rotate(-45deg);
       }
       &:after {
-        bottom: 2px;
+        bottom: 5px;
         left: 0;
         transform: rotate(45deg);
       }
@@ -56,19 +80,19 @@
 
     &:last-child {
       &:before {
-        top: 3px;
+        top: 5px;
         right: 0;
         transform: rotate(45deg);
       }
       &:after {
-        bottom: 2px;
+        bottom: 5px;
         right: 0;
         transform: rotate(-45deg);
       }
     }
   }
 
-  &.expand--expanded {
+  &.page-link--expand-expanded {
     span:first-child {
       &:before {
         left: 6px;
