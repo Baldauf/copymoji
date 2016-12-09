@@ -5,12 +5,13 @@
 
 //------------------------------------------------------------------------------
 // Emoji
-.emoji {
+.char {
   @include flex(row, space-between, center);
   flex-wrap: wrap;
   max-width: $width--emojis;
   margin: 0 auto;
-  .emoji__mojo {
+
+  .char__mojo {
     position: relative;
     padding: 10px 17px 24px;
     -webkit-user-select: none;
@@ -40,7 +41,7 @@
         content: 'copy';
       }
 
-      .emoji__mojo-tones {
+      .char__mojo-tones {
         display: block;
       }
     }
@@ -50,7 +51,7 @@
     }  
   }
 
-  .emoji__mojo-tones {
+  .char__mojo-tones {
     display: none;
     position: absolute;
     z-index: 1;
@@ -76,7 +77,7 @@
       transform: rotate(45deg);
     }
 
-    .emoji__mojo-tone {
+    .char__mojo-tone {
       display: block;
       width: 100%;
       &:hover {
@@ -90,7 +91,17 @@
     }
   }
 
-  &.emoji--widescreen {
+  &.char--widescreen {
     max-width: calc(100% - 100px);
+  }
+
+  &.char--symbols {
+    .char__mojo {
+      width: 50px;
+      padding-right: 0;
+      padding-left: 0;
+      margin: 0!important;
+      text-align: center;
+    }
   }
 }

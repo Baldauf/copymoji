@@ -1,110 +1,102 @@
 <!doctype html>
 <html class="no-js" lang="">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title>Copychar</title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="style/css/main.css">
-        <link href="https://fonts.googleapis.com/css?family=Roboto+Mono" rel="stylesheet">
+  <head>
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>Copy Character</title>
+      <meta name="description" content="Find, search, and copy your favorite emojis and symbols with a single click." />
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="twitter:card" content="CopyChar.com // Express yourself">
+      <meta name="twitter:site" content="@shanebaldauf">
+      <meta name="twitter:title" content="Page Title">
+      <meta name="twitter:description" content="Find, search, and copy your favorite emojis and symbols with a single click">
+      <meta name="twitter:creator" content="@shanebaldauf">
+      <meta name="twitter:image" content="img/twitter.png">
+      <meta property="og:title" content="CopyChar.com // Express yourself" />
+      <meta property="og:type" content="website" />
+      <meta property="og:url" content="http://copychar.com/" />
+      <meta property="og:image" content="img/facebook.png" />
+      <meta property="og:description" content="Find, search, and copy your favorite emojis and symbols with a single click" /> 
+      <meta property="og:site_name" content="CopyChar" />
 
-        <!-- Place this data between the <head> tags of your website -->
-        <title>Copy Character</title>
-        <meta name="description" content="Find, search, and copy your favorite emojis with a single click." />
+      <link rel="stylesheet" href="style/css/main.css">
+      <link href="https://fonts.googleapis.com/css?family=Roboto+Mono" rel="stylesheet">
+  </head>
 
-        <!-- Twitter Card data -->
-        <meta name="twitter:card" content="CopyChar.com // Express yourself">
-        <meta name="twitter:site" content="@shanebaldauf">
-        <meta name="twitter:title" content="Page Title">
-        <meta name="twitter:description" content="Find, search, and copy your favorite emojis with a single click">
-        <meta name="twitter:creator" content="@shanebaldauf">
-        <-- Twitter Summary card images must be at least 120x120px -->
-        <meta name="twitter:image" content="img/twitter.png">
-
-        <!-- Open Graph data -->
-        <meta property="og:title" content="CopyChar.com // Express yourself" />
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="http://copychar.com/" />
-        <meta property="og:image" content="img/facebook.png" />
-        <meta property="og:description" content="Find, search, and copy your favorite emojis with a single click" /> 
-        <meta property="og:site_name" content="CopyChar" />
-    </head>
-
-    <body>
-      <div class="page page--index" id="page">
-        <div class="page__header">
-          <div class="page-header">
-            <svg class="icon icon--copy-logo">
-              <use xlink:href="svg/symbol/sprite.svg#copy-logo" />
-            </svg>
-          </div>
+  <body>
+    <div class="page page--index" id="page">
+      <div class="page__header">
+        <div class="page-header">
+          <svg class="icon icon--copy-logo">
+            <use xlink:href="svg/symbol/sprite.svg#copy-logo" />
+          </svg>
         </div>
-        <div class="page__body">
-          <div class="page-body">
-            <div class="megalinks">
-              <a href="char.html" class="megalink megalink--char">
-                <span class="megalink__char">⧧⧰⌘♺⍾</span>
-                <span class="megalink__text">symbols</span>
-              </a>
-              <a href="emoji.html" class="megalink megalink--emoji">
-                <span class="megalink__char">😃😉🍭🎯🚀🛠</span>
-                <span class="megalink__text">emojis</span>
-              </a>
-            </div>
-          </div>
-        </div>
-        <div class="page__footer">
-          <div class="page-footer">✍ w/ 💛 by <a href="https://twitter.com/ShaneBaldauf">Shane</a> &amp; <a href="https://twitter.com/ShaneGring"> Shane</a></div>
-          <div class="page-footer-right">
-            <a href="#" id="feedback-modal">Got Feedback?</a>
-          </div>
-          <div class="page-footer-feedback-form">
-            <a href="#" id="feedback-close"></a>
-            <form id="feedback-form" action="https://formspree.io/hello@withd.co" method="POST">
-              <div class="input-wrap">
-                <div class="input-wrap--inner">
-                  <input type="text" name="name" placeholder="Your Name*">
-                  <span class="input-el"></span>
-                </div>
-              </div>
-
-              <div class="input-wrap">
-                <div class="input-wrap--inner">
-                  <input type="email" name="_replyto" placeholder="Your Email*">
-                  <span class="input-el"></span>
-                </div>
-              </div>
-
-              <div class="input-wrap input-wrap--right">
-                <div class="input-wrap--inner">
-                  <textarea type="message" name="message" placeholder="How can we make copymoji better? 🙂"></textarea>
-                  <span class="input-el"></span>
-                </div>
-              </div>
-
-              <input type="hidden" name="_next" value="" />
-              <input type="text" name="_gotcha" style="display:none" />
-              <div class="input-wrap input-wrap--submit">
-                <button type="submit" value="Send">Send</button>
-              </div>
-            </form>
+      </div>
+      <div class="page__body">
+        <div class="page-body">
+          <div class="megalinks">
+            <a href="symbol.html" class="megalink megalink--char">
+              <span class="megalink__char">⧧⧰⌘♺⍾</span>
+              <span class="megalink__text">symbols</span>
+            </a>
+            <a href="emoji.html" class="megalink megalink--emoji">
+              <span class="megalink__char">😃😉🍭🎯🚀🛠</span>
+              <span class="megalink__text">emojis</span>
+            </a>
           </div>
         </div>
       </div>
-      <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
-      <script src="js/main.js" type="text/javascript"></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.5.13/clipboard.min.js"></script>
-      <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-58422e3343719fd9"></script> 
-      <script>
-        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-          (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+      <div class="page__footer">
+        <div class="page-footer">✍ w/ 💛 by <a href="https://twitter.com/ShaneBaldauf">Shane</a> &amp; <a href="https://twitter.com/ShaneGring"> Shane</a></div>
+        <div class="page-footer-right">
+          <a href="#" id="feedback-modal">Got Feedback?</a>
+        </div>
+        <div class="page-footer-feedback-form">
+          <a href="#" id="feedback-close"></a>
+          <form id="feedback-form" action="https://formspree.io/hello@withd.co" method="POST">
+            <div class="input-wrap">
+              <div class="input-wrap--inner">
+                <input type="text" name="name" placeholder="Your Name*">
+                <span class="input-el"></span>
+              </div>
+            </div>
 
-        ga('create', 'UA-88497955-1', 'auto');
-        ga('send', 'pageview');
+            <div class="input-wrap">
+              <div class="input-wrap--inner">
+                <input type="email" name="_replyto" placeholder="Your Email*">
+                <span class="input-el"></span>
+              </div>
+            </div>
 
-      </script>
-    </body>
+            <div class="input-wrap input-wrap--right">
+              <div class="input-wrap--inner">
+                <textarea type="message" name="message" placeholder="How can we make copymoji better? 🙂"></textarea>
+                <span class="input-el"></span>
+              </div>
+            </div>
+
+            <input type="hidden" name="_next" value="" />
+            <input type="text" name="_gotcha" style="display:none" />
+            <div class="input-wrap input-wrap--submit">
+              <button type="submit" value="Send">Send</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+    <script src="js/main.js" type="text/javascript"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.5.13/clipboard.min.js"></script>
+    <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-58422e3343719fd9"></script> 
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-88497955-1', 'auto');
+      ga('send', 'pageview');
+
+    </script>
+  </body>
 </html>
