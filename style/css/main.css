@@ -754,6 +754,7 @@ html, body {
   display: block;
   width: 490px;
   margin: 0 auto;
+  padding-left: 15px;
 }
 
 .category.category--hide {
