@@ -803,85 +803,112 @@ html, body {
   font-size: 10px;
 }
 
-.expand {
+.page__links {
+  position: relative;
+  z-index: 3;
+}
+
+.page-links {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  position: fixed;
+  top: 15px;
+  right: 20px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.page-link {
+  text-shadow: initial;
+  box-shadow: initial;
+  margin-right: 10px;
+}
+
+.page-link:hover, .page-link:active {
+  text-shadow: initial;
+  box-shadow: initial;
+}
+
+.page-link--emoji {
+  font-size: 12px;
+}
+
+.page-link--expand {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  text-shadow: initial;
-  box-shadow: initial;
-  position: fixed;
-  top: 20px;
-  right: 20px;
-  width: 35px;
+  width: 25px;
   height: 15px;
-  z-index: 3;
   transform: scale(0.875);
 }
 
-.expand:hover span, .expand:hover span:before, .expand:hover span:after {
+.page-link--expand:hover span, .page-link--expand:hover span:before, .page-link--expand:hover span:after {
   background: #344160;
 }
 
-.expand:hover, .expand:active {
+.page-link--expand:hover, .page-link--expand:active {
   text-shadow: initial;
   box-shadow: initial;
 }
 
-.expand span {
-  width: 15px;
-  height: 2px;
-  background: #677bad;
+.page-link--expand span {
+  width: 10px;
+  height: 1px;
+  background: #344160;
 }
 
-.expand span:before, .expand span:after {
+.page-link--expand span:before, .page-link--expand span:after {
   content: '';
   position: absolute;
-  width: 10px;
-  height: 2px;
-  background: #677bad;
+  width: 5px;
+  height: 1px;
+  background: #344160;
 }
 
-.expand span:first-child:before {
-  top: 3px;
+.page-link--expand span:first-child:before {
+  top: 5px;
   left: 0;
   transform: rotate(-45deg);
 }
 
-.expand span:first-child:after {
-  bottom: 2px;
+.page-link--expand span:first-child:after {
+  bottom: 5px;
   left: 0;
   transform: rotate(45deg);
 }
 
-.expand span:last-child:before {
-  top: 3px;
+.page-link--expand span:last-child:before {
+  top: 5px;
   right: 0;
   transform: rotate(45deg);
 }
 
-.expand span:last-child:after {
-  bottom: 2px;
+.page-link--expand span:last-child:after {
+  bottom: 5px;
   right: 0;
   transform: rotate(-45deg);
 }
 
-.expand.expand--expanded span:first-child:before {
+.page-link--expand.page-link--expand-expanded span:first-child:before {
   left: 6px;
   transform: rotate(45deg);
 }
 
-.expand.expand--expanded span:first-child:after {
+.page-link--expand.page-link--expand-expanded span:first-child:after {
   left: 6px;
   transform: rotate(-45deg);
 }
 
-.expand.expand--expanded span:last-child:before {
+.page-link--expand.page-link--expand-expanded span:last-child:before {
   right: 6px;
   transform: rotate(-45deg);
 }
 
-.expand.expand--expanded span:last-child:after {
+.page-link--expand.page-link--expand-expanded span:last-child:after {
   right: 6px;
   transform: rotate(45deg);
 }

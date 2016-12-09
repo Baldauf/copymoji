@@ -42,9 +42,9 @@ $(document).ready(function(){
 
 
   // Widescreen
-  $('.expand').click(function(e) {
+  $('.page-link--expand').click(function(e) {
     e.preventDefault();
-    $(this).toggleClass('expand--expanded');
+    $(this).toggleClass('page-link--expand-expanded');
     $('.char').toggleClass('char--widescreen');
   });
 
