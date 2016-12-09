@@ -7,7 +7,7 @@ $(document).ready(function(){
     $('.category').removeClass('category--hide');
 
     // simple search toggle
-    $('.emoji__mojo').each( function() {
+    $('.char__mojo').each( function() {
       $(this).toggle( keyword.length < 1 || $(this).attr('data-models').indexOf(keyword) > -1 );
     });
 
@@ -22,9 +22,9 @@ $(document).ready(function(){
   });
 
   // make clipboard clip
-  new Clipboard('.emoji__mojo-tone');
+  new Clipboard('.char__mojo-tone');
 
-  var clipboard = new Clipboard('.emoji__mojo--copy');
+  var clipboard = new Clipboard('.char__mojo--copy');
 
   clipboard.on('success', function(e) {
     var copyBlock = $('.copy-block'),
@@ -45,7 +45,7 @@ $(document).ready(function(){
   $('.expand').click(function(e) {
     e.preventDefault();
     $(this).toggleClass('expand--expanded');
-    $('.emoji').toggleClass('emoji--widescreen');
+    $('.char').toggleClass('char--widescreen');
   });
 
   // Feedback modal: show

@@ -600,7 +600,7 @@ html, body {
   }
 }
 
-.emoji {
+.char {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -610,7 +610,7 @@ html, body {
   margin: 0 auto;
 }
 
-.emoji .emoji__mojo {
+.char .char__mojo {
   position: relative;
   padding: 10px 17px 24px;
   -webkit-user-select: none;
@@ -619,11 +619,11 @@ html, body {
   user-select: none;
 }
 
-.emoji .emoji__mojo:nth-child(6n) {
+.char .char__mojo:nth-child(6n) {
   margin-right: 10px;
 }
 
-.emoji .emoji__mojo:after {
+.char .char__mojo:after {
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
@@ -635,25 +635,25 @@ html, body {
   user-select: none;
 }
 
-.emoji .emoji__mojo:hover {
+.char .char__mojo:hover {
   cursor: pointer;
   background: rgba(52, 65, 96, 0.1);
   border-radius: 4px;
 }
 
-.emoji .emoji__mojo:hover:after {
+.char .char__mojo:hover:after {
   content: 'copy';
 }
 
-.emoji .emoji__mojo:hover .emoji__mojo-tones {
+.char .char__mojo:hover .char__mojo-tones {
   display: block;
 }
 
-.emoji .emoji__mojo:active {
+.char .char__mojo:active {
   background: #ebeef4;
 }
 
-.emoji .emoji__mojo-tones {
+.char .char__mojo-tones {
   display: none;
   position: absolute;
   z-index: 1;
@@ -667,7 +667,7 @@ html, body {
   box-shadow: 0 1px 0 1px rgba(52, 65, 96, 0.05);
 }
 
-.emoji .emoji__mojo-tones:after {
+.char .char__mojo-tones:after {
   content: '';
   position: absolute;
   width: 10px;
@@ -680,22 +680,30 @@ html, body {
   transform: rotate(45deg);
 }
 
-.emoji .emoji__mojo-tones .emoji__mojo-tone {
+.char .char__mojo-tones .char__mojo-tone {
   display: block;
   width: 100%;
 }
 
-.emoji .emoji__mojo-tones .emoji__mojo-tone:hover {
+.char .char__mojo-tones .char__mojo-tone:hover {
   background: #ebeef4;
 }
 
-.emoji .emoji__mojo-tones .emoji__mojo-tone:first-child {
+.char .char__mojo-tones .char__mojo-tone:first-child {
   position: relative;
   z-index: 1;
 }
 
-.emoji.emoji--widescreen {
+.char.char--widescreen {
   max-width: calc(100% - 100px);
+}
+
+.char.char--symbols .char__mojo {
+  width: 50px;
+  padding-right: 0;
+  padding-left: 0;
+  margin: 0 !important;
+  text-align: center;
 }
 
 .page-search {
@@ -934,7 +942,7 @@ a:active {
   box-shadow: inset 0 -3px 1px 0 white, inset 0 -4px 0 0 #344160;
 }
 
-span.emoji {
+span.char {
   font-size: 36px;
 }
 
