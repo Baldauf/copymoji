@@ -417,6 +417,13 @@ html, body {
   position: relative;
   height: 80px;
   background: #f3f5f9;
+  padding-bottom: 20px;
+}
+
+@media (min-width: 768px) {
+  .page .page__footer {
+    padding-bottom: 0px;
+  }
 }
 
 .page .page__footer a {
@@ -435,6 +442,18 @@ html, body {
 .page .page__footer .page-footer-right {
   position: absolute;
   right: 10px;
+}
+
+.page .page__footer .page-footer-left {
+  position: absolute;
+  left: 10px;
+}
+
+@media (min-width: 768px) {
+  .page .page__footer .page-footer-left {
+    position: relative;
+    text-align: center;
+  }
 }
 
 .page .page__footer .page-footer-feedback-form {
@@ -940,7 +959,13 @@ html, body {
 }
 
 .megalink .megalink__char {
-  font-size: 60px;
+  font-size: 30px;
+}
+
+@media (min-width: 768px) {
+  .megalink .megalink__char {
+    font-size: 60px;
+  }
 }
 
 .megalink .megalink__text {

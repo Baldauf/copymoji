@@ -29,6 +29,11 @@ html, body {
     position: relative;
     height: 80px;
     background: lighten($black, 67.5%);
+    padding-bottom: 20px;
+
+    @include media(">=tablet") {
+    padding-bottom: 0px;    
+      }
 
     a {
       @include desc-underlines($black, lighten($black, 67.5%), 2px);
@@ -37,6 +42,16 @@ html, body {
     .page-footer-right {
       position: absolute;
       right: 10px;
+    }
+
+    .page-footer-left {
+      position: absolute;
+      left: 10px;
+    
+     @include media(">=tablet") {
+      position: relative;
+      text-align: center;     
+      }
     }
 
     .page-footer-feedback-form {
