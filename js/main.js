@@ -21,12 +21,25 @@ $(document).ready(function(){
     })
   });
 
-  // make clipboard clip
-  new Clipboard('.char__mojo-tone');
-
+  // make clipboard clip for default + tones
   var clipboard = new Clipboard('.char__mojo--copy');
+  var tones = new Clipboard('.char__mojo-tone');
 
   clipboard.on('success', function(e) {
+    var copyBlock = $('.copy-block'),
+        copyContent = $(e.trigger).data('clipboard-text');
+
+    function hideCopy(){
+      $('.copy-block').removeClass('copy-block--copied');
+    }
+
+    copyBlock.find('span').html(copyContent);
+    copyBlock.addClass('copy-block--copied');
+    setTimeout(hideCopy, 2000);
+    e.clearSelection();
+  });
+
+  tones.on('success', function(e) {
     var copyBlock = $('.copy-block'),
         copyContent = $(e.trigger).data('clipboard-text');
 
