@@ -19,12 +19,17 @@
   flex-basis: 50%;
   flex-grow: 1;
 
+
   &:hover {
     background: lighten($black, 67.5%);
   }
 
   .megalink__char {
+    font-size: 30px;
+
+     @include media(">=tablet") {
     font-size: 60px;
+    }
   }
 
   .megalink__text {
