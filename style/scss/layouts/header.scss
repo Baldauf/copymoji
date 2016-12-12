@@ -7,5 +7,5 @@
 // Header
 .page-header {
   @include flex(row, center, center);
-  height: 170px;
+  height: $height--full-header;
 }

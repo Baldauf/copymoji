@@ -6,11 +6,17 @@
 // Megalink
 
 .megalinks {
-  @include flex(row, center, stretch);
+  @include flex(column, center, stretch);
   position: absolute;
-  height: 100vh;
   width: 100vw;
-  top: 0;
+  height: calc(100% - #{$height--full-header});
+  top: $height--full-header;
+  
+  @include media(">=tablet") {
+    @include flex(row, center, stretch);
+    height: 100vh;
+    top: 0;
+  }
 }
 
 .megalink {

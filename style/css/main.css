@@ -722,6 +722,7 @@ html, body {
   padding-right: 0;
   padding-left: 0;
   margin: 0 !important;
+  font-size: 24px;
   text-align: center;
 }
 
@@ -934,13 +935,24 @@ html, body {
 
 .megalinks {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: center;
   align-items: stretch;
   position: absolute;
-  height: 100vh;
   width: 100vw;
-  top: 0;
+  height: calc(100% - 170px);
+  top: 170px;
+}
+
+@media (min-width: 768px) {
+  .megalinks {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: stretch;
+    height: 100vh;
+    top: 0;
+  }
 }
 
 .megalink {
