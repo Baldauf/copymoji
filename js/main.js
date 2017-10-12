@@ -12,7 +12,7 @@ $(document).ready(function(){
     });
 
     // hide categories if no results
-    $('.emoji').each( function() {
+    $('.char').each( function() {
       if($(this).children(':visible').length == 0) {
         $(this).parent().addClass('category--hide');
       } else {
