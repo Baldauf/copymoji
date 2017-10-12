@@ -1,14 +1,25 @@
 $(document).ready(function(){
 
-  $('#search').keyup(function() {
-    var keyword = $(this).val().toLowerCase();
+  function getQueryVar(v) {
+    var query = window.location.search.substring(1)
+      , vars = query.split('&')
 
+    for ( var i = 0; i < vars.length; i++ ) {
+      var pair = vars[i].split('=')
+
+      if (decodeURIComponent(pair[0]) == v) {
+        return decodeURIComponent(pair[1])
+      }
+    }
+  }
+
+  function search(term) {
     // rebuild on keystroke
     $('.category').removeClass('category--hide');
 
     // simple search toggle
     $('.char__mojo').each( function() {
-      $(this).toggle( keyword.length < 1 || $(this).attr('data-models').indexOf(keyword) > -1 );
+      $(this).toggle( term.length < 1 || $(this).attr('data-models').indexOf(term) > -1 );
     });
 
     // hide categories if no results
@@ -19,6 +30,19 @@ $(document).ready(function(){
         $(this).parent().removeClass('category--hide');
       }
     })
+  }
+
+  var defaultSearch = getQueryVar('search')
+
+  if(defaultSearch) {
+    $('#search').val(defaultSearch)
+    search(defaultSearch)
+  }
+
+  $('#search').keyup(function() {
+    var keyword = $(this).val().toLowerCase();
+
+    search(keyword)
   });
 
   // make clipboard clip for default + tones
@@ -159,21 +183,4 @@ $(window).scroll(function() {
       self.removeClass(active)
     }
   });
-
-  // $(".filter--people").each( function(e){
-  //   var self = $(this),
-  //       target = $(this.hash),
-  //       height = target.height(),
-  //       dist = target.offset().top,
-  //       bottom = height + dist,
-  //       active = 'filter--active';
-
-  //       console.log(bottom)
-
-  //   if(scroll > dist && scroll < bottom) {
-  //     self.addClass(active);
-  //   } else {
-  //     self.removeClass(active)
-  //   }
-  // });
 });
